@@ -1,1 +1,56 @@
-# Created by .ignore support plugin (hsz.mobi)
+.bash
+.history
+
+*.class
+test-output
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+target
+bin
+.project
+.classpath
+.settings
+
+sw-pom.xml
+*.iml
+test-config.properties
+.idea
+/.gradle/
+/gradle/
+*.bat
+/gradlew
+**/build/
+
+
+._*
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.vscode
+.VolumeIcon.icns
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+/.sonar/
+sonar-project.properties
+
+!/.mvn/wrapper/maven-wrapper.jar
+*.versionsBackup
+
+# STS
+.factorypath
+*.zip
