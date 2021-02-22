@@ -72,7 +72,7 @@ public class JdlServiceImpl implements JdlService {
             if(StrUtil.isBlank(result)){
                 throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("无响应内容").build());
             }
-            log.info("【result】:\n {}", result);
+            log.info("【result】: {}", result);
             return result;
         }catch (HttpException e){
             throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("接口请求发生错误").build(),e);
