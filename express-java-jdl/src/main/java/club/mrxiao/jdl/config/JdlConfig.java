@@ -34,7 +34,7 @@ public class JdlConfig {
     private String pin;
 
     /**
-     * token
+     * token 不用配置
      */
     private String token;
 
