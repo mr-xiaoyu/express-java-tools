@@ -13,9 +13,19 @@ import lombok.Data;
 public class SfConfig {
 
     /**
-     * 调用地址
+     * 生产环境地址
      */
-    private String url;
+    private static final String PRO_URL = "https://sfapi.sf-express.com/std/service";
+
+    /**
+     * 沙箱环境地址
+     */
+    private static final String BOX_URL = "https://sfapi-sbox.sf-express.com/std/service";
+
+    /**
+     * 是否生产环境
+     */
+    private Boolean pro = false;
 
     /**
      * 月结卡号
@@ -31,4 +41,15 @@ public class SfConfig {
      * 校验码
      */
     private String check;
+
+    /**
+     * 获取api地址
+     * @return api地址
+     */
+    public String getUrl(){
+        if(this.pro){
+            return PRO_URL;
+        }
+        return BOX_URL;
+    }
 }

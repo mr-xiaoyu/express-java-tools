@@ -5,7 +5,7 @@
 test-output
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 

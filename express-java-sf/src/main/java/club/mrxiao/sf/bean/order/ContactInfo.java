@@ -2,8 +2,6 @@ package club.mrxiao.sf.bean.order;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * <pre>
  * 收寄双方信息
@@ -12,9 +10,7 @@ import java.io.Serializable;
  * @since 2021-02-14
  */
 @Data
-public class ContactInfo implements Serializable {
-
-    private static final long serialVersionUID = -5433654159216361040L;
+public class ContactInfo {
 
     /**
      * 地址类型:1，寄件方信息 2，到件方信息

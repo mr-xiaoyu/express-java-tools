@@ -12,6 +12,12 @@
     <name>express-java-tools</name>
     <description>快递业务api封装</description>
 
+    <modules>
+        <module>express-java-sf</module>
+        <module>express-java-jdl</module>
+        <module>express-java-common</module>
+    </modules>
+
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -20,13 +26,10 @@
     </licenses>
 
     <scm>
-
+        <connection>scm:git@github.com:mr-xiaoyu/express-java-tools.git</connection>
+        <developerConnection>scm:git@github.com:mr-xiaoyu/express-java-tools.git</developerConnection>
+        <url>https://github.com/mr-xiaoyu/express-java-tools</url>
     </scm>
-    <modules>
-        <module>express-java-sf</module>
-        <module>express-java-jdl</module>
-        <module>express-java-common</module>
-    </modules>
 
     <developers>
         <developer>
@@ -78,6 +81,12 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-log</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- hutool-crypto -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-crypto</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
 

@@ -3,7 +3,7 @@ package club.mrxiao.sf.util.digest;
 
 import club.mrxiao.common.error.ExpressError;
 import club.mrxiao.common.error.ExpressErrorException;
-import sun.misc.BASE64Encoder;
+import cn.hutool.core.codec.Base64;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -32,8 +32,7 @@ public class DigestUtil {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(toVerifyText.getBytes(StandardCharsets.UTF_8));
             byte[] md = md5.digest();
-            return new BASE64Encoder().encode(md);
-
+            return Base64.encode(md);
         }catch (Exception e){
             throw new ExpressErrorException(ExpressError.builder().errorMsg("签名生成发生错误").build(),e);
         }

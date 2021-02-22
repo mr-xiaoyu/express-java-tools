@@ -4,7 +4,6 @@ import club.mrxiao.sf.util.json.SfGsonBuilder;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -16,9 +15,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class UpdateOrderRequest implements Serializable {
-
-    private static final long serialVersionUID = 7966928547900480523L;
+public class UpdateOrderRequest {
 
     /**
      * 接口服务代码

@@ -2,8 +2,6 @@ package club.mrxiao.sf.bean.order;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
  * <pre>
  * 托寄物信息
@@ -12,9 +10,7 @@ import java.io.Serializable;
  * @since 2021-02-14
  */
 @Data
-public class CargoDetail implements Serializable {
-
-    private static final long serialVersionUID = 6519323118720580155L;
+public class CargoDetail {
 
     /**
      * 货物名称

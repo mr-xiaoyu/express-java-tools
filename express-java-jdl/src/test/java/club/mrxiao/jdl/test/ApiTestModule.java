@@ -1,8 +1,9 @@
-package club.mrxiao.sf.test;
+package club.mrxiao.jdl.test;
 
-import club.mrxiao.sf.api.SfService;
-import club.mrxiao.sf.api.impl.SfServiceImpl;
-import club.mrxiao.sf.config.SfConfig;
+import club.mrxiao.common.error.ExpressErrorException;
+import club.mrxiao.jdl.api.JdlService;
+import club.mrxiao.jdl.api.impl.JdlServiceImpl;
+import club.mrxiao.jdl.config.JdlConfig;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
 import com.google.inject.Binder;
@@ -22,6 +23,7 @@ public class ApiTestModule implements Module {
 
     @Override
     public void configure(Binder binder) {
+
         try (InputStream inputStream = ClassLoader.getSystemResourceAsStream(TEST_CONFIG_PROPERTIES)) {
             if (inputStream == null) {
                 throw new RuntimeException("测试配置文件【" + TEST_CONFIG_PROPERTIES + "】未找到，请参照test-config-sample.properties文件生成");
@@ -30,20 +32,26 @@ public class ApiTestModule implements Module {
             pro.load(inputStream);
             inputStream.close();
 
-            SfConfig config = new SfConfig();
+            JdlConfig config = new JdlConfig();
 
             if(pro.containsKey("pro")){
                 config.setPro(Boolean.valueOf(pro.getProperty("pro")));
             }
-            config.setCard(pro.getProperty("card"));
-            config.setCheck(pro.getProperty("check"));
-            config.setCode(pro.getProperty("code"));
+            config.setAppKey(pro.getProperty("app_key"));
+            config.setAppSecret(pro.getProperty("app_secret"));
+            config.setCustomerCode(pro.getProperty("customer_code"));
+            config.setRefreshToken(pro.getProperty("refresh_token"));
+            config.setToken(pro.getProperty("token"));
 
-            SfService sfService = new SfServiceImpl();
-            sfService.setConfig(config);
-            binder.bind(SfService.class).toInstance(sfService);
-            binder.bind(SfConfig.class).toInstance(config);
-        } catch (IOException e) {
+            JdlService jdlService = new JdlServiceImpl();
+            try {
+                jdlService.setConfig(config);
+            } catch (ExpressErrorException e) {
+                this.log.error(e.getMessage(), e);
+            }
+            binder.bind(JdlService.class).toInstance(jdlService);
+            binder.bind(JdlConfig.class).toInstance(config);
+        }catch (IOException e) {
             this.log.error(e.getMessage(), e);
         }
     }

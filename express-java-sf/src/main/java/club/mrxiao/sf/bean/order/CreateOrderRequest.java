@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +17,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class CreateOrderRequest implements Serializable {
-
-    private static final long serialVersionUID = 2141462736904539515L;
+public class CreateOrderRequest {
 
     /**
      * 接口服务代码
