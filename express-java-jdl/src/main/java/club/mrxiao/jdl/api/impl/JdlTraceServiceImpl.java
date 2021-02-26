@@ -4,9 +4,10 @@ import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.jdl.api.JdlService;
 import club.mrxiao.jdl.api.JdlTraceService;
 import club.mrxiao.jdl.bean.trace.GetWaybill2cTraceByWaybillCodeRequest;
+import club.mrxiao.jdl.bean.trace.GetWaybill2cTraceByWaybillCodeResponse;
 import club.mrxiao.jdl.bean.trace.QueryTraceRequest;
+import club.mrxiao.jdl.bean.trace.QueryTraceResponse;
 import club.mrxiao.jdl.config.JdlConfig;
-import com.google.gson.JsonObject;
 import lombok.AllArgsConstructor;
 
 /**
@@ -25,17 +26,17 @@ public class JdlTraceServiceImpl implements JdlTraceService {
     private JdlService jdlService;
 
     @Override
-    public void queryTrace(QueryTraceRequest request) throws ExpressErrorException {
+    public QueryTraceResponse queryTrace(QueryTraceRequest request) throws ExpressErrorException {
         JdlConfig config = this.jdlService.getConfig();
         request.getQueryDTO().setJosPin(config.getPin());
         request.getQueryDTO().setCustomerCode(config.getCustomerCode());
-        this.jdlService.execute(request, JsonObject.class);
+        return this.jdlService.execute(request, QueryTraceResponse.class);
     }
 
     @Override
-    public void getWaybill2cTraceByWaybillCode(GetWaybill2cTraceByWaybillCodeRequest request) throws ExpressErrorException {
+    public GetWaybill2cTraceByWaybillCodeResponse getWaybill2cTraceByWaybillCode(GetWaybill2cTraceByWaybillCodeRequest request) throws ExpressErrorException {
         JdlConfig config = this.jdlService.getConfig();
         request.getWaybill2cTraceDto().setTradeCode(config.getCustomerCode());
-        this.jdlService.execute(request,JsonObject.class);
+        return this.jdlService.execute(request, GetWaybill2cTraceByWaybillCodeResponse.class);
     }
 }
