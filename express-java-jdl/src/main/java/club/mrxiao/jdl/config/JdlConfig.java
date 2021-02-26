@@ -26,7 +26,7 @@ public class JdlConfig {
     /**
      * 是否生产环境
      */
-    private Boolean pro;
+    private Boolean pro = false;
 
     /**
      * 京东账号

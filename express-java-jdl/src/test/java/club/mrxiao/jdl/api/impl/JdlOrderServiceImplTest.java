@@ -5,14 +5,13 @@ import club.mrxiao.jdl.api.JdlService;
 import club.mrxiao.jdl.bean.order.*;
 import club.mrxiao.jdl.test.ApiTestModule;
 import club.mrxiao.jdl.util.json.JdlGsonBuilder;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
 import com.google.inject.Inject;
 import org.testng.annotations.Guice;
 import org.testng.annotations.Test;
-
-import java.util.Date;
 
 @Guice(modules = ApiTestModule.class)
 public class JdlOrderServiceImplTest {
@@ -51,8 +50,8 @@ public class JdlOrderServiceImplTest {
     @Test
     public void cancelOrder() throws ExpressErrorException {
         CancelWaybillInterceptReq req = new CancelWaybillInterceptReq();
-        req.setDeliveryId("123232");
-        req.setCancelTime(new Date());
+        req.setDeliveryId("JDVA05680435398");
+        req.setCancelTime(DateUtil.current(true));
         req.setCancelOperator("xiao");
         req.setCancelReasonCode(1);
         req.setInterceptReason("取消发货");

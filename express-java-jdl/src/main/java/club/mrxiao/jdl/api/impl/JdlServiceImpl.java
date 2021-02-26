@@ -83,7 +83,7 @@ public class JdlServiceImpl implements JdlService {
                 throw new ExpressErrorException(ExpressError.builder().json(result).build());
             }
             this.resultSuccess(request,result);
-            log.info("【result】: {} \n",result);
+            log.debug("【result】: {} \n",result);
             return JdlGsonBuilder.create().fromJson(result, clazz);
         }catch (HttpException e){
             throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("接口请求发生错误").build(),e);

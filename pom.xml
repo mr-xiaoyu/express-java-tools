@@ -16,6 +16,7 @@
         <module>express-java-sf</module>
         <module>express-java-jdl</module>
         <module>express-java-common</module>
+        <module>express-java-spring-boot-starters</module>
     </modules>
 
     <licenses>

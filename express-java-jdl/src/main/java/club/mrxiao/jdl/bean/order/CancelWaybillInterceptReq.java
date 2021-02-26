@@ -2,8 +2,6 @@ package club.mrxiao.jdl.bean.order;
 
 import lombok.Data;
 
-import java.util.Date;
-
 /**
  * <pre>
  * 取消请求参数对象
@@ -28,7 +26,7 @@ public class CancelWaybillInterceptReq {
      * 是否必填：是
      * </pre>
      */
-    private Date cancelTime;
+    private Long cancelTime;
 
     /**
      * 商家编码
