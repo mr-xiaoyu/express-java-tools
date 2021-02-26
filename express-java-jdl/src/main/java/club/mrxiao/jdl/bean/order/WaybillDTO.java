@@ -83,7 +83,8 @@ public class WaybillDTO{
     private String customerName;
 
     /**
-     * 付费方式,0:寄付月结,1:到付,2:寄付现结
+     *
+     * 付费方式,0、默认，商家月结,1、到付现结,2、寄付现结
      * <pre>
      *     是否必填：否
      * </pre>
@@ -974,4 +975,9 @@ public class WaybillDTO{
      * </pre>
      */
     private List<CustomerBoxDTO> customerBoxList;
+
+
+    public void setSettleType(Integer settleType){
+        this.addedService = "settleType:"+settleType;
+    }
 }

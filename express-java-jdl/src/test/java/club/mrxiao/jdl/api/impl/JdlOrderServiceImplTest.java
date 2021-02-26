@@ -50,7 +50,7 @@ public class JdlOrderServiceImplTest {
     @Test
     public void cancelOrder() throws ExpressErrorException {
         CancelWaybillInterceptReq req = new CancelWaybillInterceptReq();
-        req.setDeliveryId("JDVA05680435398");
+        req.setDeliveryId("JDVA05680711267");
         req.setCancelTime(DateUtil.current(true));
         req.setCancelOperator("xiao");
         req.setCancelReasonCode(1);
