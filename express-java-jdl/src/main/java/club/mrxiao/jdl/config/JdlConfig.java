@@ -20,7 +20,7 @@ public class JdlConfig {
     /**
      * UAT环境地址
      */
-    private static final String UAT_URL = "https://uat-api.jdl.cn";
+    private static final String BOX_URL = "https://uat-api.jdl.cn";
 
 
     /**
@@ -72,6 +72,6 @@ public class JdlConfig {
         if(this.pro){
             return PRO_URL;
         }
-        return UAT_URL;
+        return BOX_URL;
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * <pre>
- * 获取打印数据请求对象
+ * 获取打印模板列表请求对象
  * </pre>
  * @author <a href="https://github.com/mr-xiaoyu">xiaoyu</a>
  * @since 2021-02-19
@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = true)
-public class PullDataRequest extends BaseRequest {
+public class GetTemplateListRequest extends BaseRequest {
 
     /**
      * 服务域
@@ -39,15 +39,15 @@ public class PullDataRequest extends BaseRequest {
     /**
      * API url
      */
-    private static final String METHOD = "/PullDataService/pullData";
+    private static final String METHOD = "/PullDataService/getTemplateList";
 
     /**
-     * 获取打印数据参数对象
+     * 获取打印模板列表参数对象
      * <pre>
      * 是否必填：是
      * </pre>
      */
-    private PullDataReqDTO pullDataReqDTO;
+    private GetTemplateListReqDTO getTemplateListReqDTO;
 
     /**
      * 获取返回状态码字段
@@ -73,8 +73,8 @@ public class PullDataRequest extends BaseRequest {
      */
     @Override
     public String getJsonParams() {
-        List<PullDataReqDTO> list = new ArrayList<>();
-        list.add(this.pullDataReqDTO);
+        List<GetTemplateListReqDTO> list = new ArrayList<>();
+        list.add(this.getTemplateListReqDTO);
         return JdlGsonBuilder.create().toJson(list);
     }
 

@@ -4,6 +4,7 @@ import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.jdl.api.JdlOrderService;
 import club.mrxiao.jdl.api.JdlService;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoRequest;
+import club.mrxiao.jdl.bean.order.ReceiveOrderInfoResponse;
 import club.mrxiao.jdl.config.JdlConfig;
 import lombok.AllArgsConstructor;
 
@@ -23,11 +24,11 @@ public class JdlOrderServiceImpl implements JdlOrderService {
     private JdlService jdlService;
 
     @Override
-    public void receiveOrder(ReceiveOrderInfoRequest request) throws ExpressErrorException {
+    public ReceiveOrderInfoResponse receiveOrder(ReceiveOrderInfoRequest request) throws ExpressErrorException {
         JdlConfig config = this.jdlService.getConfig();
         request.getWaybillDTO().setJosPin(config.getPin());
         request.getWaybillDTO().setAppKey(config.getAppKey());
         request.getWaybillDTO().setCustomerCode(config.getCustomerCode());
-        this.jdlService.execute(request);
+        return this.jdlService.execute(request,ReceiveOrderInfoResponse.class);
     }
 }

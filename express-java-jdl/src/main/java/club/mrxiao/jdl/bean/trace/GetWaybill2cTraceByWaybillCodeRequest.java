@@ -27,6 +27,16 @@ public class GetWaybill2cTraceByWaybillCodeRequest extends BaseRequest {
     private static final String LOP_DN= "express";
 
     /**
+     * code字段
+     */
+    private static final String CODE_FIELD = "statusCode";
+
+    /**
+     * 成功状态码
+     */
+    private static final Integer SUCCESS_CODE = 0;
+
+    /**
      * API url
      */
     private static final String METHOD = "/Waybill2CTraceApi/getWaybill2CTraceByWaybillCode";
@@ -38,6 +48,24 @@ public class GetWaybill2cTraceByWaybillCodeRequest extends BaseRequest {
      * </pre>
      */
     private Waybill2cTraceDTO waybill2cTraceDto;
+
+    /**
+     * 获取返回状态码字段
+     * @return 返回状态码字段
+     */
+    @Override
+    public String getCodeField() {
+        return CODE_FIELD;
+    }
+
+    /**
+     * 获取成功返回状态码
+     * @return 成功返回状态码
+     */
+    @Override
+    public Integer getSuccessCode() {
+        return SUCCESS_CODE;
+    }
 
     /**
      * 获取请求json数据

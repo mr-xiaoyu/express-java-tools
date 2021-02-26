@@ -29,10 +29,12 @@ public interface JdlService {
     /**
      * 执行请求
      * @param request {@link BaseRequest} 统一请求对象
+     * @param <T> 返回对象
+     * @param clazz 返回对象
      * @return 请求结果
      * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
      */
-    String execute(BaseRequest request) throws ExpressErrorException;
+    <T> T execute(BaseRequest request,Class<T> clazz) throws ExpressErrorException;
 
     /**
      * 获取京东物流订单api接口

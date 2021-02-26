@@ -3,8 +3,10 @@ package club.mrxiao.jdl.api.impl;
 import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.jdl.api.JdlService;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoRequest;
+import club.mrxiao.jdl.bean.order.ReceiveOrderInfoResponse;
 import club.mrxiao.jdl.bean.order.WaybillDTO;
 import club.mrxiao.jdl.test.ApiTestModule;
+import club.mrxiao.jdl.util.json.JdlGsonBuilder;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
@@ -26,6 +28,7 @@ public class JdlOrderServiceImplTest {
         WaybillDTO dto = new WaybillDTO();
         dto.setSalePlat("0030001");
         dto.setOrderId(IdUtil.simpleUUID());
+        dto.setSettleType(1);
         dto.setSenderName("肖宇");
         dto.setSenderMobile("17710789809");
         dto.setSenderAddress("北京市朝阳区西坝河北里25号楼和泰园C-102");
@@ -41,6 +44,8 @@ public class JdlOrderServiceImplTest {
                 .waybillDTO(dto)
                 .build();
 
-        this.jdlService.getJdlOrderService().receiveOrder(request);
+        ReceiveOrderInfoResponse response = this.jdlService.getJdlOrderService().receiveOrder(request);
+
+        log.info("【response】:\n {}", JdlGsonBuilder.create().toJson(response));
     }
 }

@@ -83,6 +83,14 @@ public class WaybillDTO{
     private String customerName;
 
     /**
+     * 付费方式,0:寄付月结,1:到付,2:寄付现结
+     * <pre>
+     *     是否必填：否
+     * </pre>
+     */
+    private Integer settleType;
+
+    /**
      * 商家订单号，强烈建议商家填写，该字段用于系统防重。如果不填写，系统将使用青龙运单号填充该字段
      * <pre>
      *     是否必填：否

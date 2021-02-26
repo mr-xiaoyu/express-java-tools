@@ -40,6 +40,17 @@ public abstract class BaseRequest {
      */
     public abstract String getMethod();
 
+    /**
+     * 获取返回状态码字段
+     * @return 返回状态码字段
+     */
+    public abstract String getCodeField();
+
+    /**
+     * 获取成功返回状态码
+     * @return 成功返回状态码
+     */
+    public abstract Integer getSuccessCode();
 
     public HttpRequest build(JdlConfig config) throws ExpressErrorException {
 

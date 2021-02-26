@@ -9,11 +9,13 @@ import club.mrxiao.jdl.api.JdlTraceService;
 import club.mrxiao.jdl.bean.BaseRequest;
 import club.mrxiao.jdl.bean.token.TokenResult;
 import club.mrxiao.jdl.config.JdlConfig;
+import club.mrxiao.jdl.util.json.JdlGsonBuilder;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpException;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
+import com.google.gson.JsonObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +33,11 @@ import static club.mrxiao.jdl.util.sign.SignUtil.md5;
  * @since 2021-02-21
  */
 public class JdlServiceImpl implements JdlService {
+
+    /**
+     * 错误返回
+     */
+    private static final String ERROR_RESPONSE = "error_response";
 
     private final Log log = LogFactory.get(this.getClass().getName());
 
@@ -66,14 +73,18 @@ public class JdlServiceImpl implements JdlService {
     }
 
     @Override
-    public String execute(BaseRequest request) throws ExpressErrorException {
+    public <T> T execute(BaseRequest request,Class<T> clazz) throws ExpressErrorException {
         try {
             String result = request.build(this.config).execute().body();
             if(StrUtil.isBlank(result)){
                 throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("无响应内容").build());
             }
-            log.info("【result】: {}", result);
-            return result;
+            if (result.contains(ERROR_RESPONSE)) {
+                throw new ExpressErrorException(ExpressError.builder().json(result).build());
+            }
+            this.resultSuccess(request,result);
+            log.info("【result】: {} \n",result);
+            return JdlGsonBuilder.create().fromJson(result, clazz);
         }catch (HttpException e){
             throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("接口请求发生错误").build(),e);
         }
@@ -98,6 +109,9 @@ public class JdlServiceImpl implements JdlService {
             if(StrUtil.isBlank(result)){
                 throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("无响应内容").build());
             }
+            if (result.contains(ERROR_RESPONSE)) {
+                throw new ExpressErrorException(ExpressError.builder().json(result).build());
+            }
             TokenResult r = TokenResult.fromJson(result);
             if(!r.isSuccess()){
                 throw new ExpressErrorException(ExpressError.builder()
@@ -111,6 +125,24 @@ public class JdlServiceImpl implements JdlService {
             this.config = config;
         }catch (HttpException e){
             throw new ExpressErrorException(ExpressError.builder().errorCode("9999").errorMsg("接口请求发生错误").build(),e);
+        }
+    }
+
+    private void resultSuccess(BaseRequest request,String result) throws ExpressErrorException {
+        JsonObject obj = JdlGsonBuilder.create().fromJson(result, JsonObject.class);
+        if(!obj.has(request.getCodeField())){
+            throw new ExpressErrorException(ExpressError.builder()
+                    .errorCode("9999")
+                    .errorMsg("状态码不存在")
+                    .json(result)
+                    .build());
+        }
+        Integer code = obj.get(request.getCodeField()).getAsInt();
+        if(!request.getSuccessCode().equals(code)){
+            throw new ExpressErrorException(ExpressError.builder()
+                    .errorCode(String.valueOf(code))
+                    .json(result)
+                    .build());
         }
     }
 }

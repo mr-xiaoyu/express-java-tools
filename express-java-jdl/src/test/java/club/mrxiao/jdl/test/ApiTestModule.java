@@ -41,7 +41,6 @@ public class ApiTestModule implements Module {
             config.setAppSecret(pro.getProperty("app_secret"));
             config.setCustomerCode(pro.getProperty("customer_code"));
             config.setRefreshToken(pro.getProperty("refresh_token"));
-            config.setToken(pro.getProperty("token"));
 
             JdlService jdlService = new JdlServiceImpl();
             try {
