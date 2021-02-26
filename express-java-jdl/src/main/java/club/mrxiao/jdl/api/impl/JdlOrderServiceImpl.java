@@ -3,9 +3,11 @@ package club.mrxiao.jdl.api.impl;
 import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.jdl.api.JdlOrderService;
 import club.mrxiao.jdl.api.JdlService;
+import club.mrxiao.jdl.bean.order.CancelOrderRequest;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoRequest;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoResponse;
 import club.mrxiao.jdl.config.JdlConfig;
+import com.google.gson.JsonObject;
 import lombok.AllArgsConstructor;
 
 /**
@@ -30,5 +32,12 @@ public class JdlOrderServiceImpl implements JdlOrderService {
         request.getWaybillDTO().setAppKey(config.getAppKey());
         request.getWaybillDTO().setCustomerCode(config.getCustomerCode());
         return this.jdlService.execute(request,ReceiveOrderInfoResponse.class);
+    }
+
+    @Override
+    public void cancelOrder(CancelOrderRequest request) throws ExpressErrorException {
+        JdlConfig config = this.jdlService.getConfig();
+        request.getCancelRequest().setPin(config.getPin());
+        this.jdlService.execute(request, JsonObject.class);
     }
 }
