@@ -2,6 +2,7 @@ package club.mrxiao.jdl.api;
 
 import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.jdl.bean.order.CancelOrderRequest;
+import club.mrxiao.jdl.bean.order.CancelOrderResponse;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoRequest;
 import club.mrxiao.jdl.bean.order.ReceiveOrderInfoResponse;
 
@@ -25,7 +26,8 @@ public interface JdlOrderService {
     /**
      * 取消下单
      * @param request {@link CancelOrderRequest} 取消下单请求对象
+     * @return {@link CancelOrderResponse} 取消下单响应对象
      * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
      */
-    void cancelOrder(CancelOrderRequest request) throws ExpressErrorException;
+    CancelOrderResponse cancelOrder(CancelOrderRequest request) throws ExpressErrorException;
 }
