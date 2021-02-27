@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=club.mrxiao.spring.boot.starter.sf.config.SfExpressAutoConfiguration

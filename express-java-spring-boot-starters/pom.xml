@@ -19,6 +19,7 @@
 
     <modules>
         <module>express-java-jdl-spring-boot-starter</module>
+        <module>express-java-sf-spring-boot-starter</module>
     </modules>
 
     <dependencies>

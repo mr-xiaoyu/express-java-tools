@@ -8,14 +8,14 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>express-java-jdl-spring-boot-starter</artifactId>
-    <name>expressJava - Spring Boot Starter for Jdl</name>
-    <description>京东物流API Spring Boot Starter</description>
+    <artifactId>express-java-sf-spring-boot-starter</artifactId>
+    <name>expressJava - Spring Boot Starter for Sf</name>
+    <description>顺丰物流API Spring Boot Starter</description>
 
     <dependencies>
         <dependency>
             <groupId>club.mrxiao</groupId>
-            <artifactId>express-java-jdl</artifactId>
+            <artifactId>express-java-sf</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
@@ -42,4 +42,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
