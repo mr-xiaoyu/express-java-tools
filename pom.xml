@@ -7,7 +7,7 @@
     <groupId>club.mrxiao</groupId>
     <artifactId>express-java-tools</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <name>express-java-tools</name>
     <description>快递业务api封装</description>
@@ -43,13 +43,12 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
 
         <lombok.version>1.18.8</lombok.version>
         <guava.version>20.0</guava.version>
         <gson.version>2.8.0</gson.version>
         <hutool.version>4.6.2</hutool.version>
-
-        <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
     </properties>
 
     <dependencyManagement>
