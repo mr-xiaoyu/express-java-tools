@@ -28,12 +28,12 @@ public class JdlOrderServiceImplTest {
         dto.setSalePlat("0030001");
         dto.setOrderId(IdUtil.simpleUUID());
         dto.setSettleType(1);
-        dto.setSenderName("肖宇");
-        dto.setSenderMobile("17710789809");
-        dto.setSenderAddress("北京市朝阳区西坝河北里25号楼和泰园C-102");
-        dto.setReceiveName("肖宇");
-        dto.setReceiveMobile("17710789809");
-        dto.setReceiveAddress("北京市朝阳区西坝河北里中里13-4-903");
+        dto.setSenderName("**");
+        dto.setSenderMobile("***********");
+        dto.setSenderAddress("北京市朝阳区西坝河北里***********");
+        dto.setReceiveName("**");
+        dto.setReceiveMobile("***********");
+        dto.setReceiveAddress("北京市朝阳区西坝河北里中里***********");
         dto.setWeight(0.0);
         dto.setVloumn(0.0);
         dto.setPromiseTimeType(1);

@@ -28,23 +28,23 @@ public class SfOrderServiceImplTest {
 
         ContactInfo sender = new ContactInfo();
         sender.setContactType(1);
-        sender.setContact("肖宇");
-        sender.setTel("17710789809");
+        sender.setContact("**");
+        sender.setTel("***********");
         sender.setCountry("CN");
         sender.setProvince("北京市");
         sender.setCity("朝阳区");
         sender.setCounty("朝阳区");
-        sender.setAddress("西坝河北里25号楼和泰园C-102");
+        sender.setAddress("西坝河北里***********");
 
         ContactInfo receiver = new ContactInfo();
         receiver.setContactType(2);
-        receiver.setContact("肖宇");
-        receiver.setTel("17710789809");
+        receiver.setContact("**");
+        receiver.setTel("***********");
         receiver.setCountry("CN");
         receiver.setProvince("北京市");
         receiver.setCity("朝阳区");
         receiver.setCounty("朝阳区");
-        receiver.setAddress("西坝河中里13号楼4-903");
+        receiver.setAddress("西坝河中里***********");
 
         List<ContactInfo> contactInfoList = new ArrayList<>();
         contactInfoList.add(sender);
