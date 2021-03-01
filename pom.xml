@@ -11,6 +11,7 @@
 
     <name>express-java-tools</name>
     <description>快递业务api封装</description>
+    <url>https://github.com/mr-xiaoyu/express-java-tools</url>
 
     <modules>
         <module>express-java-sf</module>
