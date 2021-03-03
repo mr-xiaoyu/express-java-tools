@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 2021-02-26
  */
 @Data
-@ConfigurationProperties(prefix = "express.sf")
+@ConfigurationProperties(prefix = "xytool.express.sf")
 public class SfExpressProperties {
 
     /**

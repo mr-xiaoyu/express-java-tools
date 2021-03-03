@@ -4,7 +4,6 @@ import club.mrxiao.sf.api.SfService;
 import club.mrxiao.sf.api.impl.SfServiceImpl;
 import club.mrxiao.sf.config.SfConfig;
 import club.mrxiao.spring.boot.starter.sf.properties.SfExpressProperties;
-import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,20 +14,23 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 自动配置.
  * @author <a href="https://github.com/mr-xiaoyu">xiaoyu</a>
- * @since 2019-12-26
+ * @since 2021-03-03
  */
-@AllArgsConstructor
 @Configuration
 @ConditionalOnClass(SfService.class)
 @EnableConfigurationProperties(SfExpressProperties.class)
-@ConditionalOnProperty(prefix = "express.jdl", value = "enabled", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "xytool.express.jdl", value = "enabled", matchIfMissing = true)
 public class SfExpressAutoConfiguration {
 
-    private SfExpressProperties properties;
+    private final SfExpressProperties properties;
+
+    public SfExpressAutoConfiguration(SfExpressProperties properties) {
+        this.properties = properties;
+    }
 
     @Bean
     @ConditionalOnMissingBean(SfService.class)
-    public SfService service(){
+    public SfService sfService(){
         SfConfig config = new SfConfig();
         config.setPro(properties.getPro());
         config.setCard(properties.getCard());
