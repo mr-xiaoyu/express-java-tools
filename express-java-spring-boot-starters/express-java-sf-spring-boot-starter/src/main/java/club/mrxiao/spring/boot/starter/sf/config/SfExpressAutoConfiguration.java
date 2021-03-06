@@ -36,6 +36,10 @@ public class SfExpressAutoConfiguration {
         config.setCard(properties.getCard());
         config.setCode(properties.getCode());
         config.setCheck(properties.getCheck());
+        config.setPrintLogo(properties.getPrintLogo());
+        config.setPrintTemplateCode(properties.getPrintTemplateCode());
+        config.setPrintCode(properties.getPrintCode());
+        config.setPrintKey(properties.getPrintKey());
 
         SfService service = new SfServiceImpl();
         service.setConfig(config);

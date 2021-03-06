@@ -2,6 +2,7 @@ package club.mrxiao.sf.api;
 
 import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.sf.bean.order.*;
+import club.mrxiao.sf.bean.print.PrintSfOrderResponse;
 
 /**
  * <pre>
@@ -35,4 +36,12 @@ public interface SfOrderService {
      * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
      */
     UpdateOrderResponse updateOrder(UpdateOrderRequest request) throws ExpressErrorException;
+
+    /**
+     * 获取面单打印数据
+     * @param request {@link OrderRespRequest} 订单结果查询请求对象
+     * @return {@link PrintSfOrderResponse} 打印数据响应对象
+     * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
+     */
+    PrintSfOrderResponse getPrintData(OrderRespRequest request) throws ExpressErrorException;
 }

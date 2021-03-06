@@ -1,10 +1,7 @@
 package club.mrxiao.jdl.api;
 
 import club.mrxiao.common.error.ExpressErrorException;
-import club.mrxiao.jdl.bean.print.GetTemplateListRequest;
-import club.mrxiao.jdl.bean.print.GetTemplateListResponse;
-import club.mrxiao.jdl.bean.print.PullDataRequest;
-import club.mrxiao.jdl.bean.print.PullDataResponse;
+import club.mrxiao.jdl.bean.print.*;
 
 /**
  * <pre>
@@ -30,4 +27,12 @@ public interface JdlPrintService {
      * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
      */
     GetTemplateListResponse getTemplateList(GetTemplateListRequest request) throws ExpressErrorException;
+
+    /**
+     * 获取面单打印数据
+     * @param request {@link PullDataRequest} 获取打印数据请求对象
+     * @return {@link PrintJdlOrderResponse}  获取打印数据响应对象
+     * @throws ExpressErrorException {@link ExpressErrorException} 异常信息
+     */
+    PrintJdlOrderResponse getPrintData(PullDataRequest request) throws ExpressErrorException;
 }

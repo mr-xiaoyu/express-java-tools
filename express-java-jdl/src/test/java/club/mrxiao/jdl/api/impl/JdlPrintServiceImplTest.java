@@ -53,4 +53,23 @@ public class JdlPrintServiceImplTest {
         GetTemplateListResponse response = this.jdlService.getJdlPrintService().getTemplateList(request);
         log.info("【response】:\n {}", JdlGsonBuilder.create().toJson(response));
     }
+
+    @Test
+    public void getPrintData() throws ExpressErrorException {
+        WayBillInfo info = new WayBillInfo();
+        info.setJdWayBillCode("JDVA05518482208");
+
+        List<WayBillInfo> wayBillInfos = new ArrayList<>();
+        wayBillInfos.add(info);
+
+        PullDataReqDTO dto = new PullDataReqDTO();
+        dto.setWayBillInfos(wayBillInfos);
+        dto.setCpCode("JD");
+
+        PullDataRequest request = PullDataRequest.builder()
+                .pullDataReqDTO(dto)
+                .build();
+        PrintJdlOrderResponse response = this.jdlService.getJdlPrintService().getPrintData(request);
+        log.info("【response】:\n {}", JdlGsonBuilder.create().toJson(response));
+    }
 }

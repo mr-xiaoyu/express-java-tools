@@ -3,6 +3,7 @@ package club.mrxiao.sf.api.impl;
 import club.mrxiao.common.error.ExpressErrorException;
 import club.mrxiao.sf.api.SfService;
 import club.mrxiao.sf.bean.order.*;
+import club.mrxiao.sf.bean.print.PrintSfOrderResponse;
 import club.mrxiao.sf.test.ApiTestModule;
 import club.mrxiao.sf.util.json.SfGsonBuilder;
 import cn.hutool.core.util.IdUtil;
@@ -78,7 +79,7 @@ public class SfOrderServiceImplTest {
     public void orderResp() throws ExpressErrorException {
         OrderRespRequest request = OrderRespRequest.builder()
                 .language("zh-CN")
-                .orderId("e48740c6a46d41bebdb21099be5cb946")
+                .orderId("bef1af64721e47df961d3b795f320523")
                 .build();
         OrderRespResponse response = sfService.getSfOrderService().orderResp(request);
         log.info("【response】:\n {}", SfGsonBuilder.create().toJson(response));
@@ -91,6 +92,17 @@ public class SfOrderServiceImplTest {
                 .dealType(2)
                 .build();
         UpdateOrderResponse response = sfService.getSfOrderService().updateOrder(request);
+        log.info("【response】:\n {}", SfGsonBuilder.create().toJson(response));
+    }
+
+
+    @Test
+    public void getPrintData() throws ExpressErrorException {
+        OrderRespRequest request = OrderRespRequest.builder()
+                .language("zh-CN")
+                .orderId("bef1af64721e47df961d3b795f320523")
+                .build();
+        PrintSfOrderResponse response = this.sfService.getSfOrderService().getPrintData(request);
         log.info("【response】:\n {}", SfGsonBuilder.create().toJson(response));
     }
 }

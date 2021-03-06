@@ -37,10 +37,17 @@ public class ApiTestModule implements Module {
             if(pro.containsKey("pro")){
                 config.setPro(Boolean.valueOf(pro.getProperty("pro")));
             }
+            if(pro.containsKey("print_offset_top")){
+                config.setPrintOffsetLeft(Integer.valueOf(pro.getProperty("print_offset_top")));
+            }
+            if(pro.containsKey("print_offset_left")){
+                config.setPrintOffsetLeft(Integer.valueOf(pro.getProperty("print_offset_left")));
+            }
             config.setAppKey(pro.getProperty("app_key"));
             config.setAppSecret(pro.getProperty("app_secret"));
             config.setCustomerCode(pro.getProperty("customer_code"));
             config.setRefreshToken(pro.getProperty("refresh_token"));
+            config.setPrintTempUrl(pro.getProperty("print_temp_url"));
 
             JdlService jdlService = new JdlServiceImpl();
             try {

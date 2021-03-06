@@ -37,6 +37,9 @@ public class JdlExpressAutoConfiguration {
         config.setAppSecret(properties.getAppSecret());
         config.setRefreshToken(properties.getRefreshToken());
         config.setCustomerCode(properties.getCustomerCode());
+        config.setPrintTempUrl(properties.getPrintTempUrl());
+        config.setPrintOffsetLeft(properties.getPrintOffsetLeft());
+        config.setPrintOffsetTop(properties.getPrintOffsetTop());
         JdlService service = new JdlServiceImpl();
         service.setConfig(config);
         return service;

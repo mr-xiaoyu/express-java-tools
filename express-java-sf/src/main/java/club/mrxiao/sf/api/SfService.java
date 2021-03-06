@@ -29,6 +29,12 @@ public interface SfService {
     void setConfig(SfConfig config);
 
     /**
+     * 获取配置
+     * @return {@link SfConfig} 配置
+     */
+    SfConfig getConfig();
+
+    /**
      * 获取顺丰订单服务
      * @return 顺丰订单服务
      */

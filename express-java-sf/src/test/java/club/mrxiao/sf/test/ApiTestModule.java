@@ -35,9 +35,15 @@ public class ApiTestModule implements Module {
             if(pro.containsKey("pro")){
                 config.setPro(Boolean.valueOf(pro.getProperty("pro")));
             }
+            if(pro.containsKey("print_logo")){
+                config.setPrintLogo(Boolean.valueOf(pro.getProperty("print_logo")));
+            }
             config.setCard(pro.getProperty("card"));
             config.setCheck(pro.getProperty("check"));
             config.setCode(pro.getProperty("code"));
+            config.setPrintCode(pro.getProperty("print_code"));
+            config.setPrintKey(pro.getProperty("print_key"));
+            config.setPrintTemplateCode(pro.getProperty("print_template_code"));
 
             SfService sfService = new SfServiceImpl();
             sfService.setConfig(config);

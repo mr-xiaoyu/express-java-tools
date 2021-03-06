@@ -36,4 +36,19 @@ public class JdlExpressProperties {
      * 商家编码
      */
     private String customerCode;
+
+    /**
+     * 标准模版链接
+     */
+    private String printTempUrl;
+
+    /**
+     * 页面上下偏移量
+     */
+    private Integer printOffsetTop = 0;
+
+    /**
+     * 页面左右偏移量
+     */
+    private Integer printOffsetLeft = 0;
 }

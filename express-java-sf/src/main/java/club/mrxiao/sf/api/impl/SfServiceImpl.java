@@ -34,6 +34,11 @@ public class SfServiceImpl implements SfService {
     }
 
     @Override
+    public SfConfig getConfig() {
+        return this.sfConfig;
+    }
+
+    @Override
     public SfOrderService getSfOrderService() {
         return this.sfOrderService;
     }

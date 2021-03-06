@@ -32,4 +32,24 @@ public class SfExpressProperties {
      */
     private String check;
 
+    /**
+     * 云打印授权码（appKey）
+     */
+    private String printKey;
+
+    /**
+     * 云打印系统编码（sysCode）
+     */
+    private String printCode;
+
+    /**
+     * 云打印模板编码
+     */
+    private String printTemplateCode;
+
+    /**
+     * 云打印是否打印LOGO
+     */
+    private Boolean printLogo = false;
+
 }
