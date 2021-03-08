@@ -33,6 +33,7 @@ public class JdlExpressAutoConfiguration {
     @ConditionalOnMissingBean(JdlService.class)
     public JdlService jdlService() throws ExpressErrorException {
         JdlConfig config = new JdlConfig();
+        config.setPro(properties.getPro());
         config.setAppKey(properties.getAppKey());
         config.setAppSecret(properties.getAppSecret());
         config.setRefreshToken(properties.getRefreshToken());
