@@ -20,7 +20,7 @@
 <dependency>
   <groupId>club.mrxiao</groupId>
   <artifactId>（不同模块参考下文）</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 

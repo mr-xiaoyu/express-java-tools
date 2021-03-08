@@ -7,7 +7,7 @@
     <groupId>club.mrxiao</groupId>
     <artifactId>express-java-tools</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>express-java-tools</name>
     <description>快递业务api封装</description>
